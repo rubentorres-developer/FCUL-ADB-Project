@@ -1,0 +1,14 @@
+services:
+  mysql:
+    container_name: mysql
+    image: mysql:8.4.3-oraclelinux9
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+    restart: always
+
+volumes:
+  mysql:

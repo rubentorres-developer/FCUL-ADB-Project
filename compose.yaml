@@ -21,6 +21,20 @@ services:
     depends_on:
       - mysql
     restart: always
+  mongo:
+    container_name: mongo
+    image: mongo:8.0.3-noble
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_configdb:/data/configdb
+      - mongo_db:/data/db
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: ${MONGO_INITDB_ROOT_USERNAME}
+      MONGO_INITDB_ROOT_PASSWORD: ${MONGO_INITDB_ROOT_PASSWORD}
+    restart: always
 
 volumes:
   mysql:
+  mongo_configdb:
+  mongo_db:

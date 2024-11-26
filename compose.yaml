@@ -18,6 +18,8 @@ services:
       APACHE_PORT: 8080
       PMA_HOST: mysql
       PMA_PORT: 3306
+      PMA_USER: ${PMA_USER}
+      PMA_PASSWORD: ${PMA_PASSWORD}
     depends_on:
       - mysql
     restart: always
